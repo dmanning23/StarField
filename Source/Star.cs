@@ -1,5 +1,4 @@
-﻿using GameTimer;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace StarField
 {
@@ -43,7 +42,7 @@ namespace StarField
 		{
 		}
 
-		public void Update(GameClock currentTime, Vector2 velocity)
+		public void Update(Vector2 velocity)
 		{
 			//add the direction + velocty to the location
 			_pos = _pos + velocity;

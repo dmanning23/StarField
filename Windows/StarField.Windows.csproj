@@ -59,14 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Source\CollectionLayer.cs">
-      <Link>CollectionLayer.cs</Link>
-    </Compile>
-    <Compile Include="..\Source\LinePoint.cs">
-      <Link>LinePoint.cs</Link>
-    </Compile>
     <Compile Include="..\Source\Star.cs">
       <Link>Star.cs</Link>
+    </Compile>
+    <Compile Include="..\Source\StarLayer.cs">
+      <Link>StarLayer.cs</Link>
     </Compile>
     <Compile Include="..\Source\Stars.cs">
       <Link>Stars.cs</Link>
@@ -77,17 +74,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GameTimer\Windows\GameTimer.Windows.csproj">
-      <Project>{6b6d4188-5c03-4e16-923b-96fdbc85b91a}</Project>
-      <Name>GameTimer.Windows</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\RandomExtensions\Windows\RandomExtensions.Windows.csproj">
       <Project>{f0bba30f-66e1-4e2f-bdf6-e17ff317c34e}</Project>
       <Name>RandomExtensions.Windows</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\RectangleF\Windows\RectangleF.Windows.csproj">
-      <Project>{ac266a3a-2c6a-491f-9044-918d7b0a41bf}</Project>
-      <Name>RectangleF.Windows</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Vector2Extensions\Windows\Vector2Extensions.Windows.csproj">
       <Project>{2c5acada-d15a-4193-ba0a-d36a362075f4}</Project>
