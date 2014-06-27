@@ -49,7 +49,7 @@ namespace StarField
 			set
 			{
 				_velocity = value;
-				_velocityLength = _velocity.Length() * 10.0f;
+				_velocityLength = _velocity.Length() * (10.0f * Scale);
 				_velocityAngle = ((_velocityLength > 0.0f) ? _velocity.Angle() : 0.0f);
 			}
 		}

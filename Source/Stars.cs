@@ -13,7 +13,7 @@ namespace StarField
 		/// </summary>
 		public List<StarLayer> Layers { get; set; }
 
-		private Color StartColor = new Color(1.0f, 1.0f, 1.0f, 0.8f);
+		private Color StartColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
 		private const byte ColorDelta = 51;
 		private const float StartScale = 1.0f;
 		private const float ScaleDelta = -0.25f;
