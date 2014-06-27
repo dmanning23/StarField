@@ -81,6 +81,18 @@
       <Project>{6b6d4188-5c03-4e16-923b-96fdbc85b91a}</Project>
       <Name>GameTimer.Windows</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\RandomExtensions\Windows\RandomExtensions.Windows.csproj">
+      <Project>{f0bba30f-66e1-4e2f-bdf6-e17ff317c34e}</Project>
+      <Name>RandomExtensions.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RectangleF\Windows\RectangleF.Windows.csproj">
+      <Project>{ac266a3a-2c6a-491f-9044-918d7b0a41bf}</Project>
+      <Name>RectangleF.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Vector2Extensions\Windows\Vector2Extensions.Windows.csproj">
+      <Project>{2c5acada-d15a-4193-ba0a-d36a362075f4}</Project>
+      <Name>Vector2Extensions.Windows</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\Windows\packages\MonoGame.Binaries.3.2.0\build\net40\MonoGame.Binaries.targets" Condition="Exists('..\..\..\Windows\packages\MonoGame.Binaries.3.2.0\build\net40\MonoGame.Binaries.targets')" />

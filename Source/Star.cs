@@ -25,21 +25,9 @@ namespace StarField
 			{
 				return _pos;
 			}
-		}
-
-		public int X
-		{
 			set
 			{
-				_pos.X = value;
-			}
-		}
-
-		public int Y
-		{
-			set
-			{
-				_pos.Y = value;
+				_pos = value;
 			}
 		}
 
@@ -51,9 +39,8 @@ namespace StarField
 		/// constructor
 		/// </summary>
 		/// <param name="pos"></param>
-		public Star(Vector2 pos)
+		public Star()
 		{
-			_pos = _pos;
 		}
 
 		public void Update(GameClock currentTime, Vector2 velocity)

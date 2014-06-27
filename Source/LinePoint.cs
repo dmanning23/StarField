@@ -19,6 +19,8 @@ namespace StarField
 		/// </summary>
 		public float Angle { get; set; }
 
+		public float Length { get; private set; }
+
 		/// <summary>
 		/// The time this point was added
 		/// </summary>
@@ -36,6 +38,11 @@ namespace StarField
 			get
 			{
 				return _pos;
+			}
+			set
+			{
+				_pos = value;
+				Length = _pos.Length();
 			}
 		}
 
@@ -59,14 +66,8 @@ namespace StarField
 
 		#region Methods
 
-		/// <summary>
-		/// constructor
-		/// </summary>
-		/// <param name="pos"></param>
-		public LinePoint(Vector2 pos, float angle)
+		public LinePoint()
 		{
-			_pos = _pos;
-			Angle = angle;
 		}
 
 		#endregion //Methods
