@@ -5,7 +5,7 @@ namespace StarField
 	/// <summary>
 	/// little class for managing a star and it's movement
 	/// </summary>
-	public class Star
+	internal class Star
 	{
 		#region Fields
 

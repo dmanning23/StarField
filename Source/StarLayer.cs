@@ -9,7 +9,7 @@ namespace StarField
 	/// <summary>
 	/// One layer in the star field
 	/// </summary>
-	public class StarLayer
+	internal class StarLayer
 	{
 		#region Fields
 
@@ -49,7 +49,7 @@ namespace StarField
 			set
 			{
 				_velocity = value;
-				_velocityLength = _velocity.Length() * (10.0f * Scale);
+				_velocityLength = _velocity.Length() *(15.0f * Scale);
 				_velocityAngle = ((_velocityLength > 0.0f) ? _velocity.Angle() : 0.0f);
 			}
 		}
@@ -121,6 +121,8 @@ namespace StarField
 
 		public void Render(SpriteBatch spriteBatch)
 		{
+			float length = ((_velocityLength > StarSize) ? _velocityLength : StarSize);
+
 			for (int i = 0; i < Stars.Count; i++)
 			{
 				//the point to start drawing from 
@@ -128,8 +130,6 @@ namespace StarField
 
 				//get the point to draw
 				Vector2 end = start + Velocity;
-
-				float length = ((_velocityLength > StarSize) ? _velocityLength : StarSize);
 
 				//draw the thing
 				spriteBatch.Draw(Tex,

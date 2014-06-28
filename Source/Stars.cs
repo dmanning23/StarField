@@ -11,14 +11,16 @@ namespace StarField
 		/// <summary>
 		/// The layers of this star field
 		/// </summary>
-		public List<StarLayer> Layers { get; set; }
+		private List<StarLayer> Layers { get; set; }
 
 		private Color StartColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
-		private const byte ColorDelta = 51;
+		private const byte ColorDelta = 30;
 		private const float StartScale = 1.0f;
-		private const float ScaleDelta = -0.25f;
-		private const float StartStarSize = 6.0f;
-		private const float StarSizeDelta = -1.0f;
+		private const float ScaleDelta = -0.2f;
+		private const float StartStarSize = 18.0f;
+		private const float StarSizeDelta = -5.0f;
+		private const int NumStartStars = 50;
+		private const int StartStarsDelta = 40;
 
 		#endregion //Fields
 
@@ -36,13 +38,15 @@ namespace StarField
 			Color color = StartColor;
 			float scale = StartScale;
 			float starSize = StartStarSize;
+			int startStars = NumStartStars;
 
 			for (int i = 0; i < 4; i++)
 			{
-				Layers.Add(new StarLayer(tex, color, scale, starSize, 50, world));
+				Layers.Add(new StarLayer(tex, color, scale, starSize, startStars, world));
 				color.A -= ColorDelta;
 				scale += ScaleDelta;
 				starSize += StarSizeDelta;
+				startStars += StartStarsDelta;
 			}
 		}
 
