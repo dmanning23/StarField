@@ -26,7 +26,7 @@ namespace StarField
 
 		#region Methods
 
-		public Stars(GraphicsDevice graphicsDevice, Rectangle world)
+		public Stars(GraphicsDevice graphicsDevice, Rectangle world, float starSizeScale = 1.0f)
 		{
 			//create the texture we need
 			var tex = new Texture2D(graphicsDevice, 1, 1, false, SurfaceFormat.Color);
@@ -37,7 +37,7 @@ namespace StarField
 			//start params for layers
 			Color color = StartColor;
 			float scale = StartScale;
-			float starSize = StartStarSize;
+			float starSize = StartStarSize * starSizeScale;
 			int startStars = NumStartStars;
 
 			for (int i = 0; i < 4; i++)
@@ -45,7 +45,7 @@ namespace StarField
 				Layers.Add(new StarLayer(tex, color, scale, starSize, startStars, world));
 				color.A -= ColorDelta;
 				scale += ScaleDelta;
-				starSize += StarSizeDelta;
+				starSize += StarSizeDelta * starSizeScale;
 				startStars += StartStarsDelta;
 			}
 		}
