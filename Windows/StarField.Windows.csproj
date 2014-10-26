@@ -52,11 +52,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Source\Star.cs">
@@ -74,10 +69,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RandomExtensions\Windows\RandomExtensions.Windows.csproj">
-      <Project>{f0bba30f-66e1-4e2f-bdf6-e17ff317c34e}</Project>
-      <Name>RandomExtensions.Windows</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Vector2Extensions\Windows\Vector2Extensions.Windows.csproj">
       <Project>{2c5acada-d15a-4193-ba0a-d36a362075f4}</Project>
       <Name>Vector2Extensions.Windows</Name>
