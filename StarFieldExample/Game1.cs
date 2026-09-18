@@ -39,7 +39,12 @@ public class Game1 : Game
         _rect.Width *= 2;
 
         //Create the Stars object, which creates 4 layers of starfield
+
+        //This creates a nice default star field
         StarBackground = new Stars(_graphics.GraphicsDevice, _rect, 0.25f);
+
+        //Specify a texture to use for stars. This doesn't work
+        //StarBackground = new Stars(Content.Load<Texture2D>("circle"), _rect, 0.25f);
     }
 
     protected override void Update(GameTime gameTime)

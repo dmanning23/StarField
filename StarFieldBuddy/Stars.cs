@@ -1,71 +1,93 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace StarField
 {
-	public class Stars
-	{
-		#region Fields
+    public class Stars
+    {
+        #region Fields
 
-		/// <summary>
-		/// The layers of this star field
-		/// </summary>
-		private List<StarLayer> Layers { get; set; }
+        /// <summary>
+        /// The layers of this star field
+        /// </summary>
+        private List<StarLayer> Layers { get; set; }
 
-		private Color StartColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
-		private const byte ColorDelta = 30;
-		private const float StartScale = 1.0f;
-		private const float ScaleDelta = -0.2f;
-		private const float StartStarSize = 18.0f;
-		private const float StarSizeDelta = -5.0f;
-		private const int NumStartStars = 50;
-		private const int StartStarsDelta = 40;
+        private Color StartColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
+        private const byte ColorDelta = 30;
+        private const float StartScale = 1.0f;
+        private const float ScaleDelta = -0.2f;
+        private const float StartStarSize = 18.0f;
+        private const float StarSizeDelta = -5.0f;
+        private const int NumStartStars = 50;
+        private const int StartStarsDelta = 40;
 
-		#endregion //Fields
+        #endregion //Fields
 
-		#region Methods
+        #region Methods
 
-		public Stars(GraphicsDevice graphicsDevice, Rectangle world, float starSizeScale = 1.0f)
-		{
-			//create the texture we need
-			var tex = new Texture2D(graphicsDevice, 1, 1, false, SurfaceFormat.Color);
-			tex.SetData<Color>(new Color[] { Color.White });
-			
-			Layers = new List<StarLayer>();
+        /// <summary>
+        /// Create a starfield with a default texture. Makes nice square pixelly stars
+        /// </summary>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="world"></param>
+        /// <param name="starSizeScale"></param>
+        public Stars(GraphicsDevice graphicsDevice, Rectangle world, float starSizeScale = 1.0f)
+        {
+            //create the texture we need
+            var tex = new Texture2D(graphicsDevice, 1, 1, false, SurfaceFormat.Color);
+            tex.SetData<Color>(new Color[] { Color.White });
+            Init(tex, world, starSizeScale);
+        }
 
-			//start params for layers
-			Color color = StartColor;
-			float scale = StartScale;
-			float starSize = StartStarSize * starSizeScale;
-			int startStars = NumStartStars;
+        // /// <summary>
+        // /// Create a starfield but specify a texture to use for stars.
+        // /// </summary>
+        // /// <param name="tex"></param>
+        // /// <param name="world"></param>
+        // /// <param name="starSizeScale"></param>
+        // public Stars(Texture2D tex, Rectangle world, float starSizeScale = 1.0f)
+        // {
+        //     Init(tex, world, starSizeScale);
+        // }
 
-			for (int i = 0; i < 4; i++)
-			{
-				Layers.Add(new StarLayer(tex, color, scale, starSize, startStars, world));
-				color.A -= ColorDelta;
-				scale += ScaleDelta;
-				starSize += StarSizeDelta * starSizeScale;
-				startStars += StartStarsDelta;
-			}
-		}
+        public void Init(Texture2D tex, Rectangle world, float starSizeScale = 1.0f)
+        {
+            Layers = new List<StarLayer>();
 
-		public void Update(Vector2 velocity, Rectangle world)
-		{
-			for (int i = 0; i < Layers.Count; i++)
-			{
-				Layers[i].Update(velocity, world);
-			}
-		}
+            //start params for layers
+            Color color = StartColor;
+            float scale = StartScale;
+            float starSize = StartStarSize * starSizeScale;
+            int startStars = NumStartStars;
 
-		public void Render(SpriteBatch spriteBatch)
-		{
-			for (int i = 0; i < Layers.Count; i++)
-			{
-				Layers[i].Render(spriteBatch);
-			}
-		}
+            for (int i = 0; i < 4; i++)
+            {
+                Layers.Add(new StarLayer(tex, color, scale, starSize, startStars, world));
+                color.A -= ColorDelta;
+                scale += ScaleDelta;
+                starSize += StarSizeDelta * starSizeScale;
+                startStars += StartStarsDelta;
+            }
+        }
 
-		#endregion //Methods
-	}
+        public void Update(Vector2 velocity, Rectangle world)
+        {
+            for (int i = 0; i < Layers.Count; i++)
+            {
+                Layers[i].Update(velocity, world);
+            }
+        }
+
+        public void Render(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < Layers.Count; i++)
+            {
+                Layers[i].Render(spriteBatch);
+            }
+        }
+
+        #endregion //Methods
+    }
 }
